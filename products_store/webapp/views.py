@@ -47,5 +47,5 @@ def create_category(request):
             title=request.POST.get('title'),
             description=request.POST.get('description')
         )
-        print(category+"============================")
+
         return redirect('index', pk=category.pk)
