@@ -12,8 +12,9 @@ def index_view(request):
 
 
 def product_view(request, *args, pk, **kwargs):
-    product = get_object_or_404(Product, pk=pk)
-    return render(request, 'products_view.html', {'product': product})
+    product = get_object_or_404(Product,  pk=pk)
+    category = get_object_or_404(Category, pk=pk)
+    return render(request, 'products_view.html', {'product': product, 'category': category})
 
 
 def delete_product(request):
@@ -27,7 +28,8 @@ def delete_product(request):
 def create_product(request):
     if request.method == "GET":
         categories_product = Category.objects.all()
-        return render(request, 'product_create.html',{'categories_product': categories_product})
+        products = Product.objects.all()
+        return render(request, 'product_create.html', {'categories_product': categories_product, 'products': products})
     elif request.method == "POST":
         product = Product.objects.create(
             title=request.POST.get('title'),
@@ -35,7 +37,7 @@ def create_product(request):
             created_at=request.POST.get('created_at'),
             amount=request.POST.get('amount'),
             image=request.POST.get('image'),
-            category=request.POST.get('category'))
+            category=Category(request.POST.get('category')))
         return redirect('product_view', pk=product.pk)
 
 

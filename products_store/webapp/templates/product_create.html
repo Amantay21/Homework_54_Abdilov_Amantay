@@ -15,7 +15,7 @@
     <input type="text" name="description"/><br/>
 
     <label>category:</label><br/>
-    <select name="type" id="">
+    <select name="category" id="">
         {% for category in categories_product %}
             <option value="{{category.id}}" name="category.title">{{ category.title }}</option>
         {% endfor %}
