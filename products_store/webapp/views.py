@@ -26,7 +26,8 @@ def delete_product(request):
 
 def create_product(request):
     if request.method == "GET":
-        return render(request, 'product_create.html')
+        categories_product = Category.objects.all()
+        return render(request, 'product_create.html',{'categories_product': categories_product})
     elif request.method == "POST":
         product = Product.objects.create(
             title=request.POST.get('title'),
@@ -39,7 +40,6 @@ def create_product(request):
 
 
 def create_category(request):
-    print("111111111111111111111111111")
     if request.method == "GET":
         return render(request, 'category_create.html')
     elif request.method == "POST":
@@ -47,5 +47,8 @@ def create_category(request):
             title=request.POST.get('title'),
             description=request.POST.get('description')
         )
+        return redirect('index')
 
-        return redirect('index', pk=category.pk)
+def category_view(request, *args, pk, **kwargs):
+    category = get_object_or_404(Category, pk=pk)
+    return render(request, 'category_view.html', {'category': category})
