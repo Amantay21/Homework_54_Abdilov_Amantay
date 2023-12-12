@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Delete Guest{% endblock %}
 {% block menu %}
-    <li><a href="{% url 'post_view' pk=guest.pk %}">View</a></li>
+    <li><a href="{% url 'product_view' pk=product.pk %}">View</a></li>
 {% endblock %}
 {% block content %}
     <h1>Are you sure want to delete this product "{{ guest.name }}"?</h1>
