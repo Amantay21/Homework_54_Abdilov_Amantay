@@ -54,3 +54,11 @@ def create_category(request):
 def category_view(request, *args, pk, **kwargs):
     category = get_object_or_404(Category, pk=pk)
     return render(request, 'category_view.html', {'category': category})
+
+def product_delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'product_delete.html', context={'product': product})
+    elif request.method == 'POST':
+        product.delete()
+        return redirect('index')

@@ -18,6 +18,7 @@
                 <h5 class="card-title">{{ product.category.title }}</h5>
                 <h4 class="card-subtitle mb-2 text-body-secondary">{{ product.amount }}</h4>
                 <a href="{% url 'product_view' pk=product.pk %}" class="card-link">Подробнее...</a>
+                <a href="{% url 'product_delete' pk=product.pk %}" class="card-link">Удалить</a>
                 <form action="product/delete/" method="POST">
                 {% csrf_token %}
                     <input type="hidden" name="id" value="{{ product.id }}">
@@ -25,22 +26,6 @@
             </form>
           </div>
 </div>
-<!--        <div class="col-sm-12 col-md-6 col-lg-4">-->
-<!--        <div class="card my-3 " style="width: 18rem;">-->
-<!--            <div class="card-body ">-->
-<!--                <img src="{{product.image}}" class="card-img-top image_product" alt="..."-->
-<!--                     style="width: auto; height: 200px;">-->
-<!--                <h5 class="card-title">{{ product.title }}</h5>-->
-<!--                <h5 class="card-title">{{ product.category.title }}</h5>-->
-<!--                <h4 class="card-subtitle mb-2 text-body-secondary">{{ product.amount }}</h4>-->
-<!--                <a href="{% url 'product_view' pk=product.pk %}" class="card-link">Подробнее...</a>-->
-<!--                <form action="product/delete/" method="POST">-->
-<!--                {% csrf_token %}-->
-<!--                    <input type="hidden" name="id" value="{{ product.id }}">-->
-<!--                <button class="btn btn-danger "  type="submit" >Удалить</button>-->
-<!--            </form>-->
-<!--            </div>-->
-<!--        </div>-->
         </div>
     {% endfor %}
     </div>
