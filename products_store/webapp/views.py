@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 
+from webapp.forms import ProductForms
 from webapp.models import Product, Category
 from django.http import HttpResponseRedirect
 
@@ -62,3 +63,25 @@ def product_delete_view(request, pk):
     elif request.method == 'POST':
         product.delete()
         return redirect('index')
+
+def update_product_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == "GET":
+        form = ProductForms(initial={
+            'title': product.title,
+            'amount': product.amount,
+            'description': product.description,
+            'image': product.image,
+        })
+        return render(request, 'product_update.html', {'form': form, 'product': product})
+    elif request.method == "POST":
+        form = ProductForms(data=request.POST)
+        if form.is_valid():
+            product.title = request.POST.get('title')
+            product.amount = request.POST.get('amount')
+            product.description = request.POST.get('description')
+            product.image = request.POST.get('image')
+            product.save()
+            return redirect('index')
+        else:
+            return render(request, 'product_update.html', {'form': form})

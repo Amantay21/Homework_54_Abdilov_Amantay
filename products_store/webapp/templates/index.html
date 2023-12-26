@@ -19,6 +19,7 @@
                 <h4 class="card-subtitle mb-2 text-body-secondary">{{ product.amount }}</h4>
                 <a href="{% url 'product_view' pk=product.pk %}" class="card-link">Подробнее...</a>
                 <a href="{% url 'product_delete' pk=product.pk %}" class="card-link">Удалить</a>
+                <a href="{% url 'product_update' pk=product.pk %}" class="card-link">Редактировать</a>
                 <form action="product/delete/" method="POST">
                 {% csrf_token %}
                     <input type="hidden" name="id" value="{{ product.id }}">

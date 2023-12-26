@@ -8,4 +8,4 @@ class ProductForms(forms.Form):
     description = forms.EmailField(max_length=400, required=True, label='Описание')
     amount = forms.DecimalField(max_digits=7, decimal_places=2, required=True, label="Цена")
     image = forms.CharField(max_length=5000, required=True, label='Изображение')
-    category = forms.ModelChoiceField(queryset=Category.object.all())
+    category = forms.ModelChoiceField(queryset=Category.objects.all())
