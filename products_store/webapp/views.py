@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+
 
 from webapp.forms import ProductForms
 from webapp.models import Product, Category
-from django.http import HttpResponseRedirect
+
 
 
 def index_view(request):
@@ -15,7 +15,7 @@ def index_view(request):
 def product_view(request, *args, pk, **kwargs):
     product = get_object_or_404(Product,  pk=pk)
     category = get_object_or_404(Category, pk=pk)
-    return render(request, 'products_view.html', {'product': product, 'category': category})
+    return render(request, 'product_view.html', {'product': product, 'category': category})
 
 
 def delete_product(request):
@@ -28,18 +28,22 @@ def delete_product(request):
 
 def create_product(request):
     if request.method == "GET":
-        categories_product = Category.objects.all()
-        products = Product.objects.all()
-        return render(request, 'product_create.html', {'categories_product': categories_product, 'products': products})
+        form = ProductForms()
+        return render(request, 'product_create.html', {'form': form})
     elif request.method == "POST":
-        product = Product.objects.create(
-            title=request.POST.get('title'),
-            description=request.POST.get('description'),
-            created_at=request.POST.get('created_at'),
-            amount=request.POST.get('amount'),
-            image=request.POST.get('image'),
-            category=Category(request.POST.get('category')))
-        return redirect('product_view', pk=product.pk)
+        form = ProductForms(data=request.POST)
+        if form.is_valid():
+            product = Product.objects.create(
+                title=request.POST.get('title'),
+                description=request.POST.get('description'),
+                amount=request.POST.get('amount'),
+                image=request.POST.get('image'),
+                category=Category(request.POST.get('category'))
+            )
+            return redirect('product_view', pk=product.pk)
+        else:
+            return render(request, 'product_create.html', {'form': form})
+
 
 
 def create_category(request):
