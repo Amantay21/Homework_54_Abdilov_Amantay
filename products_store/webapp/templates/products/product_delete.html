@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Delete Guest{% endblock %}
+{% block title %}Delete Product{% endblock %}
 {% block menu %}
-    <li><a href="{% url 'product_view' pk=product.pk %}">View</a></li>
+    <li><a href="{% url 'products_view' pk=product.pk %}">View</a></li>
 {% endblock %}
 {% block content %}
-    <h1>Are you sure want to delete this product "{{ guest.name }}"?</h1>
+    <h1>Are you sure want to delete this product "{{ product.name }}"?</h1>
     <form method="POST" action="{% url "product_delete" pk=product.pk %}" class="text-center">
         {% csrf_token %}
       <p><input type="submit" value="Confirm"></p></form>
 <form method="POST" action="{% url 'index' %}" class="text-center">
         {% csrf_token %}
-        <p><input type="submit" href="{% url 'index' %} value="Cancel"></p></form>
+        <p><input type="submit" href="{% url 'index' %}" value="Cancel"></p></form>
 
 {% endblock %}

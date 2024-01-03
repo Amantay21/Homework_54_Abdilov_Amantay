@@ -1,354 +1,166 @@
 [
 {
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
+    "model": "webapp.category",
+    "pk": 1,
+    "fields": {
+        "title": "food",
+        "description": "some food to live and energe"
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
+    "model": "webapp.category",
+    "pk": 2,
+    "fields": {
+        "title": "gadgets",
+        "description": ""
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
+    "model": "webapp.category",
+    "pk": 3,
+    "fields": {
+        "title": "clothes",
+        "description": "some description"
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can view log entry",
-    "content_type": 1,
-    "codename": "view_logentry"
-  }
+    "model": "webapp.category",
+    "pk": 4,
+    "fields": {
+        "title": "shoes",
+        "description": "some description"
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 2,
-    "codename": "add_permission"
-  }
+    "model": "webapp.category",
+    "pk": 5,
+    "fields": {
+        "title": "car",
+        "description": "some description"
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 2,
-    "codename": "change_permission"
-  }
+    "model": "webapp.category",
+    "pk": 6,
+    "fields": {
+        "title": "entertainment",
+        "description": "some description"
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 7,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 2,
-    "codename": "delete_permission"
-  }
+    "model": "webapp.category",
+    "pk": 7,
+    "fields": {
+        "title": "books",
+        "description": "some description"
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 8,
-  "fields": {
-    "name": "Can view permission",
-    "content_type": 2,
-    "codename": "view_permission"
-  }
+    "model": "webapp.product",
+    "pk": 2,
+    "fields": {
+        "title": "Apple",
+        "description": "some desc",
+        "created_at": "2023-12-05T12:08:09.972Z",
+        "amount": "88.00",
+        "image": "data:image/jpeg;base64,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YFlq6rGqr1q44+ampZJGaIa1nEtPQfDyUDahAuoquMHFVnYmTAV3HFrfbEMzniITVHwM16T6T+kX4kipVmnQz4PqDg3g3/l4cRQ2JQptIe8b7tJ/SP8A11PVeyw+3DxXWwdHPnJ+FPL1U24h7XCU6dNjadNoaxohrRkApw9eVobWnVX6W0JXRVHc3klc2ni1YbXQWpWVA2qtw9BIi1lZlBlFiVlAREQEREBERBgrRzlsVo4IIaj1TrVFcexQPooORiXFcfFUiV6aph1Xfg0HisXgC5cevsKTK+ivwHJQu2dyQfOzsmoMnu8Son7KqfuK+iO2aOCidszko/RxzO+2PxDO5fPTsup+53itf9IdqSvoB2XyWp2XySMOOPFY/BuXgm7FVmjsqNF7T/TOSyNmclvERHhh5ijhCFeo0Cu63Z3JSswCyOdh2FdHDyp2YRWGYdBmi4q3Teo2UlMxiCdj1M16ga1StCCdrluHKIBbhBKCsrQLZBsiwFlAREQEREGIWIWyINC1alilWIQQmktDRVmEhBTNBaHDq9CbqDnnDLU4VdHdWNxBzThVqcLyXU3Fj7aDl/2qf2q6f20+2g5n9ss/266X21j7aCgMOthRV37azuIKYpLcU1Z3FncQQBi3DVLurMINA1bALaFmEGIWUhZQEREBERAREQEREBERAREQEREBERAWIRECEhEQISERAhIRECEhEQISERBlERAREQEREH//2Q==",
+        "category": null
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 9,
-  "fields": {
-    "name": "Can add group",
-    "content_type": 3,
-    "codename": "add_group"
-  }
+    "model": "webapp.product",
+    "pk": 6,
+    "fields": {
+        "title": "iphone",
+        "description": "sadsa",
+        "created_at": "2023-12-05T12:47:53.596Z",
+        "amount": "5500.00",
+        "image": "https://i.pcmag.com/imagery/roundups/07ml3nh3QrzTLZ9UycfQQB2-52..v1696534815.jpg",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can change group",
-    "content_type": 3,
-    "codename": "change_group"
-  }
+    "model": "webapp.product",
+    "pk": 7,
+    "fields": {
+        "title": "AirPods3",
+        "description": "Беспроводные наушники Apple AirPods 3 в Бишкеке - Login.kg ",
+        "created_at": "2023-12-05T16:16:43.473Z",
+        "amount": "3000.00",
+        "image": "data:image/jpeg;base64,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",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can delete group",
-    "content_type": 3,
-    "codename": "delete_group"
-  }
+    "model": "webapp.product",
+    "pk": 8,
+    "fields": {
+        "title": "Духовая трубка",
+        "description": "Духовая трубка - один из древнейших видов метательного оружия. Sport BlowGun - современная адаптация старинного оружия, но из современных материалов и с использованием современных технологий.",
+        "created_at": "2023-12-13T10:51:22.440Z",
+        "amount": "1400.00",
+        "image": "https://www.gadget.kg/upload/catalog/55/item_5475/5cb3ecf25e891335dc6ff5b51c1f729e.jpg",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can view group",
-    "content_type": 3,
-    "codename": "view_group"
-  }
+    "model": "webapp.product",
+    "pk": 15,
+    "fields": {
+        "title": "Проекционные часы",
+        "description": "Настольные часы в стиле Хайтек.",
+        "created_at": "2023-12-13T12:09:40.860Z",
+        "amount": "1700.00",
+        "image": "https://www.gadget.kg/upload/catalog/53/item_5234/1c628584cd32daba6d4b2af403ddd919.jpg",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add user",
-    "content_type": 4,
-    "codename": "add_user"
-  }
+    "model": "webapp.product",
+    "pk": 17,
+    "fields": {
+        "title": "       Детская копилка сейф Aerospace piggy bank",
+        "description": "Хотите чтобы ваш ребенок накопил средства на покупку новой игрушки? В этом ему поможет копилка «Сейф», которая надёжно сохранит и обережёт от покушающихся его средства.",
+        "created_at": "2023-12-13T12:41:16.098Z",
+        "amount": "1200.00",
+        "image": "https://www.gadget.kg/upload/catalog/66/item_6562/55af0e095bff8f219f7ef54152cde207.jpg",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 4,
-    "codename": "change_user"
-  }
+    "model": "webapp.product",
+    "pk": 18,
+    "fields": {
+        "title": "       Мышечный массажер для тела MDHL Smart Fascial Gun 8121, Массажный пистолет",
+        "description": "Мышечный массажер MDHL Smart Fascial Gun используется для уменьшения мышечной боли, улучшения кровообращения, снятия боли в суставах после тяжелой тренировки или продолжительной физической работы. Его применяют профессиональные спортсмены и люди, страдающие рассеянным склерозом, артритом и мышечной атрофией.",
+        "created_at": "2023-12-13T12:46:42.639Z",
+        "amount": "2400.00",
+        "image": "https://www.gadget.kg/upload/catalog/65/item_6448/a8c34d2f12195c8ed3b19305dafaf573.jpg",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 4,
-    "codename": "delete_user"
-  }
+    "model": "webapp.product",
+    "pk": 19,
+    "fields": {
+        "title": "Отвертка",
+        "description": "крестовая",
+        "created_at": "2024-01-02T16:51:51.044Z",
+        "amount": "130.00",
+        "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+        "category": 2
+    }
 },
 {
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can view user",
-    "content_type": 4,
-    "codename": "view_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 17,
-  "fields": {
-    "name": "Can add content type",
-    "content_type": 5,
-    "codename": "add_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 18,
-  "fields": {
-    "name": "Can change content type",
-    "content_type": 5,
-    "codename": "change_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 19,
-  "fields": {
-    "name": "Can delete content type",
-    "content_type": 5,
-    "codename": "delete_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 20,
-  "fields": {
-    "name": "Can view content type",
-    "content_type": 5,
-    "codename": "view_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 21,
-  "fields": {
-    "name": "Can add session",
-    "content_type": 6,
-    "codename": "add_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 22,
-  "fields": {
-    "name": "Can change session",
-    "content_type": 6,
-    "codename": "change_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 23,
-  "fields": {
-    "name": "Can delete session",
-    "content_type": 6,
-    "codename": "delete_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 24,
-  "fields": {
-    "name": "Can view session",
-    "content_type": 6,
-    "codename": "view_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 25,
-  "fields": {
-    "name": "Can add category",
-    "content_type": 7,
-    "codename": "add_category"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 26,
-  "fields": {
-    "name": "Can change category",
-    "content_type": 7,
-    "codename": "change_category"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 27,
-  "fields": {
-    "name": "Can delete category",
-    "content_type": 7,
-    "codename": "delete_category"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 28,
-  "fields": {
-    "name": "Can view category",
-    "content_type": 7,
-    "codename": "view_category"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 29,
-  "fields": {
-    "name": "Can add product",
-    "content_type": 8,
-    "codename": "add_product"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 30,
-  "fields": {
-    "name": "Can change product",
-    "content_type": 8,
-    "codename": "change_product"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 31,
-  "fields": {
-    "name": "Can delete product",
-    "content_type": 8,
-    "codename": "delete_product"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 32,
-  "fields": {
-    "name": "Can view product",
-    "content_type": 8,
-    "codename": "view_product"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 1,
-  "fields": {
-    "app_label": "admin",
-    "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 2,
-  "fields": {
-    "app_label": "auth",
-    "model": "permission"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 3,
-  "fields": {
-    "app_label": "auth",
-    "model": "group"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 4,
-  "fields": {
-    "app_label": "auth",
-    "model": "user"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 6,
-  "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "webapp",
-    "model": "category"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 8,
-  "fields": {
-    "app_label": "webapp",
-    "model": "product"
-  }
+    "model": "webapp.product",
+    "pk": 20,
+    "fields": {
+        "title": "Отвертка",
+        "description": "крестовая",
+        "created_at": "2024-01-02T16:56:26.567Z",
+        "amount": "130.00",
+        "image": "https://cdn.vseinstrumenti.ru/images/goods/ruchnoj-instrument/otvertki/230789/204x184/71935915.jpg",
+        "category": 2
+    }
 }
 ]
