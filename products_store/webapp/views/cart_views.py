@@ -1,9 +1,10 @@
 from django.db.models import F, Sum
 from django.shortcuts import get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 
-from webapp.models import Product, Cart
+from webapp.forms import OrderForms
+from webapp.models import Product, Cart, OrderProduct
 
 
 class ProductAddToCart(View):
@@ -29,6 +30,7 @@ class CartsView(TemplateView):
         carts = Cart.objects.annotate(total=F('qty') * F('product__amount'))
         context['carts'] = carts
         context['total'] = carts.aggregate(total=Sum(F('qty') * F('product__amount')))['total']
+        context['form'] = OrderForms()
         return context
 
 
@@ -37,3 +39,15 @@ class ProductCartDeleteFromCart(View):
         product = get_object_or_404(Cart, product_id=kwargs['pk'])
         product.delete()
         return redirect('carts_list')
+
+
+class OrderCreateView(CreateView):
+    form_class = OrderForms
+
+    def form_valid(self, form):
+        order = form.save()
+        carts = Cart.objects.all()
+        for cart in carts:
+            OrderProduct.objects.create(product=cart.product, order=order, qty=cart.qty)
+        carts.delete()
+        return redirect('index')

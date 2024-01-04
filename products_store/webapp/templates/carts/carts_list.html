@@ -32,4 +32,12 @@
 
 <h3>Total: {{ total }}</h3>
 
+<div>
+
+    <form action="{% url 'order_add_view' %}" method="POST">
+    {% csrf_token %}
+    {% include 'partial/forms.html'  with value_submit='Оформить заказ'%}
+</form>
+</div>
+
 {% endblock %}
