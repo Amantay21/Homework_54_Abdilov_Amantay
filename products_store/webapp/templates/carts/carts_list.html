@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Add product category{% endblock %}
+{% block menu %}<a class="nav-link" aria-current="page"  href="{% url 'index' %}">На главную</a>{% endblock %}
+
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cart in carts %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ cart.product.title }}</td>
+      <td>{{ cart.product.price }}</td>
+      <td>{{ cart.qty }}</td>
+        <td>{{ cart.total }}</td>
+        <td><a href="{% url 'product_delete_from_cart_view' cart.product.pk %}">Delete</a></td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+<h3>Total: {{ total }}</h3>
+
+{% endblock %}

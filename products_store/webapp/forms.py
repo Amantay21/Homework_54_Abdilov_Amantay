@@ -1,6 +1,6 @@
 from django import forms
 
-from webapp.models import Category, Product
+from webapp.models import Category, Product, Cart
 
 
 class CategoryForms(forms.ModelForm):
@@ -12,7 +12,13 @@ class CategoryForms(forms.ModelForm):
 class ProductForms(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['title', 'description', 'amount', 'image', 'category']
+        fields = ['title', 'description', 'amount', 'image', 'category', 'qty']
+
+
+class CartForms(forms.ModelForm):
+    class Meta:
+        model = Cart
+        fields = ['product', 'qty']
 
 
 class SimpleSearchForm(forms.Form):
